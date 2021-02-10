@@ -1,4 +1,4 @@
-## Self Portrait for P5.js
+## Code Self Portrait for P5.js
 #### by An Duong
 
 
