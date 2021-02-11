@@ -1,3 +1,14 @@
+/*************************************************************************
+    Code Self Portrait
+          by An Duong
+
+    This project to recreate a drawn portrait using code. The idea is to capture the essence of the portrait. 
+ 
+    ---------------------------------------------------------------------
+    I'm unsure if I need this many functions for each body part. 
+**************************************************************************/
+
+ 
 // Global
 var gDebugMode = true;
 var hair = (60, 40, 30);
