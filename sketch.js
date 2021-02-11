@@ -1,8 +1,8 @@
 // Global
 var gDebugMode = true;
 var hair = (60,40,30);
-var earrings = (100,200,40);
-var lips = (220,100,100);
+var earrings = (200,200,200);
+var lips = (200,80,80);
 var eyebrows = (60,40,30);
 
 // Setup code goes here
@@ -29,6 +29,13 @@ function draw() {
   drawHair();
   drawFace();
   drawEyebrows();
+  drawNose();
+  drawBlush();
+  drawEarrings();
+  drawEyes();
+  drawLips();
+
+  drawText();
 }
 
 function drawDebugInfo(){
@@ -52,19 +59,21 @@ function mousePressed(){
     let m = random(250);
     let k = random (250);
 
-    let w = random(200);
-    let t = random(200);
-    let v = random(200);
+    let d = random(200);
+    let e = random(200);
+    let f = random(200);
     
     hair = color(r, g, b); 
     earrings = color(c, m, k);
-    lips = color(w,t,v);
+    lips = color(d,e,f);
     eyebrows = color(c, m, k);
   
  }
 
+
 function drawFace()
 {
+
 	// face
 	noStroke();
 	fill(247,221,212);
@@ -85,6 +94,39 @@ function drawFace()
 	fill(247, 221, 212);
 	rect(330, 300, 45, 75, 20);
 
+}
+
+function drawLips(){
+	//lips
+	fill(lips);
+	beginShape();
+	vertex(330, 300);
+	bezierVertex(330, 300, 340, 290, 350, 300);
+	bezierVertex(350, 300, 360, 290, 370, 300);
+	bezierVertex(370, 300, 350, 325, 330, 300);
+	endShape(close);
+}
+
+function drawEyes(){
+	//eyeball
+	fill(255);
+	ellipse(300,230,40,20);
+	ellipse(400,230,40,20);
+	//pupil
+	fill(100,80,80);
+	ellipse(300,230,23,23);
+	ellipse(400,230,23,23);
+
+
+	//eyeball light
+	fill(255);
+	ellipse(300,228,10,10);
+	ellipse(400,228,10,10);
+	ellipse(295,225,5,5);
+	ellipse(405,225,5,5);
+}
+
+function drawEarrings(){
 	//earrings
 	fill(255);
 	strokeWeight(20);
@@ -94,30 +136,7 @@ function drawFace()
 	//right
 	fill(earrings);
 	triangle(415, 300, 435, 260, 455, 300);
-
-	//lips
-	fill(lips);
-	beginShape();
-	vertex(330, 300);
-	bezierVertex(330, 300, 340, 290, 350, 300);
-	bezierVertex(350, 300, 360, 290, 370, 300);
-	bezierVertex(370, 300, 350, 325, 330, 300);
-	endShape(close);
-
-	//eyes
-
-	//eyeball
-	fill(100,80,80);
-	ellipse(300,230,23,23);
-	ellipse(400,230,23,23);
-
-	//eyeball light
-	fill(255);
-	ellipse(298,228,5,5);
-	ellipse(402,228,5,5);
-
 }
-
 
 function drawHair(){
 	// hair
@@ -140,10 +159,31 @@ function drawHair(){
 }
 
 function drawEyebrows(){
-	//Eyebrows
+	//eyebrows
 	stroke(eyebrows);
 	noFill();
-	strokeWeight(10);
-	arc(300,230,40,35,PI+QUARTER_PI,PI+HALF_PI+QUARTER_PI);
-	arc(400,230,40,35,PI+QUARTER_PI,PI+HALF_PI+QUARTER_PI);
+	strokeWeight(7);
+	arc(300,230,60,45,PI+QUARTER_PI,PI+HALF_PI+QUARTER_PI);
+	arc(400,230,60,45,PI+QUARTER_PI,PI+HALF_PI+QUARTER_PI);
+}
+
+function drawNose(){
+	//nose
+	noStroke();
+	fill(220,180,180);
+	ellipse(350,270,25,20);
+}
+
+function drawBlush(){
+	//blush
+	noStroke();
+	fill(220,150,150);
+	ellipse(400,260,20,10);
+	ellipse(300,260,20,10);
+}
+
+function drawText(){
+	let s = 'Click to Change Color!';
+	fill(255);
+	text(s, 240, 20, 800, 80); 
 }
